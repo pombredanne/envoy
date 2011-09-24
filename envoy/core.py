@@ -53,6 +53,51 @@ class Command(object):
         return self.out, self.err
 
 
+class ConnectedCommand(object):
+    def __init__(self,
+      process=None,
+      std_in=None,
+      std_out=None,
+      std_err=None):
+
+        self._process = process
+        self.std_in = std_in
+        self.std_out = std_out
+        self.std_err = std_out
+
+    @property
+    def status_code(self):
+        """The status code of the process.
+
+        If the code is None, assume that it's still running.
+        """
+        return None
+
+    @property
+    def pid(self):
+        """The process' PID."""
+        return 0
+
+    def kill(self):
+        """Kills the process."""
+        return True
+
+    def expect(self, bytes, stream=None):
+        """Block until given bytes appear in the stream."""
+        if stream is None:
+            stream = self.std_out
+        pass
+
+    def sendline(self, end='\n'):
+        """Sends a line to std_in."""
+        pass
+
+    def block(self):
+        """Blocks until command finishes. Returns Response instance."""
+        pass
+
+
+
 
 class Response(object):
     """A command's response"""
@@ -128,3 +173,7 @@ def run(command, data=None, timeout=None):
     r.history = history
 
     return r
+
+
+def connect():
+    pass
