@@ -16,10 +16,6 @@ if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
 
-# if sys.argv[-1] == "test":
-#     os.system("python test_requests.py")
-#     sys.exit()
-
 required = []
 
 setup(
@@ -42,7 +38,7 @@ setup(
         'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        # 'Programming Language :: Python :: 3.0',
-        # 'Programming Language :: Python :: 3.1',
+        'Programming Language :: Python :: 3.0',
+        'Programming Language :: Python :: 3.1',
     ),
 )
